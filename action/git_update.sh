@@ -56,7 +56,7 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
 # Only tag if no tag already (would be better if the git describe command above could have a silent option)
 if [[ -z "$NEEDS_TAG" ]]
 then
-  echo "Tagged with $NEW_TAG (Ignoring fatal:cannot describe - this means commit is untagged) "
+  echo "Tagged with $NEW_TAG (Ignoring fatal:cannot describe - this means commit is untagged)"
   git tag $NEW_TAG
   git push --tags
 else
