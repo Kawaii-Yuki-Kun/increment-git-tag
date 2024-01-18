@@ -1,0 +1,16 @@
+---
+name: Increment Git Tag
+description: Increments git tag based on the provided version type
+# Specify what type of version we want to increment (major, minor, patch)
+inputs:
+  version_type: # exact name of the variable we will reference in the javascript code
+    description: 'Provide version type [major, minor, patch]'
+    required: true
+    default: 'patch'
+outputs:
+  new-verion: # variable that we can use in other steps of the workflow
+    description: 'New version number'
+runs:
+  using: node12 # environment
+  main: action/index.js # entrypoint file
+  # This index.js file will contain the github action logic + all the dependencies 
