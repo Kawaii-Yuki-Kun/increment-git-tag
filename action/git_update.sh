@@ -14,7 +14,7 @@ done
 git fetch --prune --unshallow 2>/dev/null
 CURRENT_VERSION=`git describe --abbrev=0 --tags 2>/dev/null`
 
-if [[ $CURRENT_VERSION == '' ]]
+if [[ -z "$CURRENT_VERSION" ]]
 then
   CURRENT_VERSION='v0.1.0'
 fi
@@ -47,7 +47,7 @@ fi
 
 # Create new tag
 NEW_TAG="v$VNUM1.$VNUM2.$VNUM3"
-echo "($VERSION Updating $CURRENT_VERSION to $NEW_TAG)"
+echo "($VERSION) Updating $CURRENT_VERSION to $NEW_TAG"
 
 # Get current hash and see if it already has a tag
 GIT_COMMIT=`git rev-parse HEAD`
